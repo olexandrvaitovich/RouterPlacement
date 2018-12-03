@@ -7,6 +7,7 @@ def count_points(outputfilename,inputfilename):
     :param inputfilename:The name of our input data file
     :return: Our algorithms score
     """
+
     cells_list, placed = text_connectedcells_visualization(outputfilename, inputfilename)
     l = lambda x:(x[3],x[4],x[5])
     connecting_to_backbone_cost, router_cost, budget = l(reading_input_data(inputfilename))
