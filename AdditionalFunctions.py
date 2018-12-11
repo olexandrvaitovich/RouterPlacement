@@ -95,6 +95,40 @@ def finding_most_valid_routers(inputfilename):
                 i += 1
 
     return routers_list
+def finding_most_valid_routers2(inputfilename):
+    """
+    :param inputfilename: The name of our input data file
+    :return: List of possible placed routers with coordinates as a first param, coverage as second and distance to
+    backbone as third
+    """
+    def calc_dist(backbone, router):
+        return max(abs(backbone[0] - router[0]), abs(backbone[1] - router[1]))
+
+    rows, cols, radius, connecting_to_backbone_cost, router_cost, budget,\
+                                            initial_backbone, cells_list = reading_input_data(inputfilename)
+
+    routers_list = list()
+    i = 0
+
+    for X in range(rows):
+        for Y in range(cols):
+            distance = calc_dist(initial_backbone, (X,Y))
+            if distance != 0 and cells_list[X][Y] == ".":  #Adding routers that are not backbone pos and in . pos
+                routers_list.append([(X,Y),0,distance, set()])
+            #Finding the coverage of our router
+                for x in range(-radius, radius + 1):
+                    for y in range(-radius, radius + 1):
+                        try:
+                            if x == 0 and y == 0:
+                                continue
+                            if cells_list[X + x][Y + y] == "." and X+x >=0 and Y+y>=0 and nowalls(cells_list, X, Y, X + x, Y + y):
+                                routers_list[i][1] += 1
+                                routers_list[i][3].add((X+x, Y+y))
+                        except IndexError:
+                            pass
+                i+=1
+
+    return routers_list
 
 
 def creating_outputfile(connected_cells, connected_cells_list, placed_routers,  routers_list):
