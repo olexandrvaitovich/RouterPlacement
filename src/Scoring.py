@@ -1,5 +1,5 @@
-from ReadingData import reading_output_data, reading_input_data
-from AdditionalFunctions import placing_connected_cells
+from src.ReadingData import reading_output_data, reading_input_data
+from src.AdditionalFunctions import placing_connected_cells
 
 def count_points(outputfilename,inputfilename):
     """
@@ -17,4 +17,4 @@ def count_points(outputfilename,inputfilename):
 
 
 if __name__ == "__main__":
-    print(count_points("outputtext.txt","inputtext.txt"))
+    print(count_points("../txt/outputtext.txt","../txt/inputtext.txt"))

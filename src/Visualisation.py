@@ -1,5 +1,5 @@
-from ReadingData import reading_input_data, reading_output_data
-from AdditionalFunctions import placing_connected_cells
+from src.ReadingData import reading_input_data, reading_output_data
+from src.AdditionalFunctions import placing_connected_cells
 
 def text_input_visualization(inputfilename):
     """
@@ -61,8 +61,8 @@ def text_connectedcells_visualization(outputfilename, inputfilename):
 
 
 if __name__ == "__main__":
-    text_input_visualization("charleston_road.in")
+    text_input_visualization("../txt/charleston_road.in")
     print("\n")
-    text_result_visualization("outputtext.txt", "inputtext.txt")
+    text_result_visualization("../txt/outputtext.txt", "../txt/inputtext.txt")
     print("\n")
-    text_connectedcells_visualization("outputtext.txt", "inputtext.txt")
+    text_connectedcells_visualization("../txt/outputtext.txt", "../txt/inputtext.txt")

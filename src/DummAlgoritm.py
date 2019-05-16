@@ -1,11 +1,11 @@
-from ReadingData import reading_input_data
-from Scoring import count_points
-from AdditionalFunctions import nowalls, finding_most_valid_routers, creating_outputfile
+from src.ReadingData import reading_input_data
+from src.Scoring import count_points
+from src.AdditionalFunctions import finding_most_valid_routers, creating_outputfile
 
 from itertools import combinations
 
 
-def dump_algorithm(inputfilename):
+def dumm_algorithm(inputfilename):
     routers_list = finding_most_valid_routers(inputfilename)
     l = lambda x:(x[3], x[4], x[5])
     connecting_to_backbone_cost, router_cost, budget = l(reading_input_data(inputfilename))
@@ -25,7 +25,7 @@ def dump_algorithm(inputfilename):
 
                 creating_outputfile(total_connected_cells, ZAGLUSHKA_CELLS, len(subset), coordinates_of_routers)
 
-                val = count_points("algoroutput.txt", inputfilename)
+                val = count_points("../txt/algoroutput.txt", inputfilename)
 
                 score_list_.append(val)
 
@@ -35,4 +35,4 @@ def dump_algorithm(inputfilename):
 
 
 if __name__ == '__main__':
-    max_score = dump_algorithm("charleston_road.in")
+    max_score = dumm_algorithm("../txt/charleston_road.in")

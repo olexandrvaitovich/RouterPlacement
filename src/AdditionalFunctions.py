@@ -1,4 +1,4 @@
-from ReadingData import reading_input_data
+from src.ReadingData import reading_input_data
 
 
 def nowalls(cells_list, X, Y, x, y):
@@ -138,7 +138,7 @@ def creating_outputfile(connected_cells, connected_cells_list, placed_routers,  
     :param placed_routers:  Quantity of routers
     :param routers_list: List of routers
     """
-    with open("algoroutput.txt","w") as file:
+    with open("../txt/algoroutput.txt","w") as file:
         file.write(str(connected_cells))
         file.write("\n")
         for i in connected_cells_list:

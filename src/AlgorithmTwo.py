@@ -1,8 +1,7 @@
-from AdditionalFunctions import nowalls
-from AdditionalFunctions import finding_most_valid_routers2
-from ReadingData import reading_input_data
-from Scoring import count_points
-import copy
+from src.AdditionalFunctions import finding_most_valid_routers2
+from src.ReadingData import reading_input_data
+
+
 def dynamic_algorithm(inputfile):
     l = lambda x:(x[3],x[4],x[5])
     connecting_to_backbone_cost, router_cost,budget = l(reading_input_data(inputfile))

@@ -24,6 +24,6 @@ def reading_output_data(outputfilename):
             connected_cells_list.append(tuple(map(int, file.readline().strip().split(" "))))
         placed_routers = int(file.readline())
         for i in range(placed_routers):
-            routers_list.append(tuple(map(int, file.readline().strip().split(" "))))
+            routers_list.append(tuple(map(int, file.readline().replace("(","").replace(")","").replace(",","").strip().split(" "))))
 
     return connected_cells_list, routers_list, connected_cells, placed_routers

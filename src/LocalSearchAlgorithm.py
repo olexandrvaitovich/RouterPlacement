@@ -1,6 +1,6 @@
-from AdditionalFunctions import finding_most_valid_routers, creating_outputfile, calc_dist, find_connected_tobackbone_cells
-from ReadingData import reading_input_data
-from Scoring import count_points
+from src.AdditionalFunctions import finding_most_valid_routers, creating_outputfile, calc_dist
+from src.ReadingData import reading_input_data
+from src.Scoring import count_points
 
 from random import choice
 
@@ -37,7 +37,7 @@ def find_better_neighbors(routers_list, current, initial_backbone, inputfilename
             distance_to_backbone = calc_dist(initial_backbone, i[0])
             ZAGLUSHKA_CELLS = [[i for i in range(2)] for j in range(distance_to_backbone)]
             creating_outputfile(distance_to_backbone, ZAGLUSHKA_CELLS, 1, [i[0]])
-            states_list.append((count_points("algoroutput.txt",inputfilename),i[0], None, distance_to_backbone,None))
+            states_list.append((count_points("../txt/algoroutput.txt",inputfilename),i[0], None, distance_to_backbone,None))
                                                             #find_connected_tobackbone_cells(initial_backbone,i[0])))
 
     return max(states_list, key=lambda x: x[0])[1:] if len(states_list) != 0 else current
